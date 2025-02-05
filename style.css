@@ -18,7 +18,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     position: relative;
 }
 
@@ -31,6 +31,25 @@ html, body {
     max-height: 80vh;
     object-fit: contain;
     transition: bottom 0.3s ease-in-out;
+    cursor: pointer;
+
+}
+
+#envelope {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    position: fixed;
+    animation: animate 2s ease-in-out infinite;
+    cursor: pointer;
+
+}
+
+@keyframes animate {
+    0%, 40%, 100% { transform: translateY(0); }
+    20% { transform: translateY(-20px); }
 }
 
 #envelope:hover {
@@ -47,6 +66,7 @@ html, body {
     max-width: 100%;
     max-height: 90vh;
     object-fit: contain;
+    z-index: 3;
 }
 
 #envelope.bottom-left {
@@ -56,6 +76,7 @@ html, body {
     width: 15%;
     height: auto;
     transform: rotate(-15deg);
+    animation: none !important;
 }
 
 #envelope.bottom-left:hover {
@@ -78,6 +99,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     display: none;
+    z-index: 3;
 }
 button:hover {
     bottom: 50.5%;
@@ -104,7 +126,7 @@ button:hover {
 #token.bottom-left {
     position: fixed;
     bottom: 23px;
-    left: 40px;
+    right: 80px;
     width: 17%;
     height: auto;
     transform: rotate(-15deg);
@@ -170,17 +192,6 @@ button:hover {
     z-index: 4;
 }
 
-#capsule {
-    display: none;  
-    position: fixed;
-    top: 50%;
-    left: 51%;
-    transform: translate(-50%, -50%); 
-    z-index: 5; 
-    width: 20%;
-    opacity: 0.7;
-}
-
 #overlay {
     display: none;
     position: fixed;
@@ -219,6 +230,21 @@ h1 {
     color: #cbf1ff; 
     z-index: 6; 
 }
+/* @keyframes animateCapsule {
+    0%,40%,100% { transform: translateY(0); }
+    20% { transform: translateY(-30px); }
+} */
+#capsule {
+    display: none;  
+    position: fixed;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%); 
+    z-index: 5; 
+    width: 20%;
+    opacity: 0.8;
+    animation: animateCapsule 2s ease-in-out infinite;
+}
 
 #randomImage {
     display: none;
@@ -227,5 +253,36 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40%;
-    
+    z-index: 7;
+}
+
+#tokensmall {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 80px;
+    width: 17%;
+    height: auto;
+    transform: rotate(-15deg);
+    transition: bottom 0.3s ease-in-out;
+    z-index: 7;
+    transform: rotate(15deg);
+}
+
+#tokensmall:hover {
+    bottom: 110px;
+}
+
+h2 {
+    display: none;
+    position: fixed;
+    bottom: 285px;
+    right: 120px;
+    transform: translateX(-50%);
+    transform: rotate(12deg);
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 11pt; 
+    color: #cbf1ff; 
+    z-index: 8; 
 }
